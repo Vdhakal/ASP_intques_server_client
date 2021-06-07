@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using InterviewQuestions.Models;
 
 namespace InterviewQuestions.Data
 {
@@ -12,5 +13,6 @@ namespace InterviewQuestions.Data
             : base(options)
         {
         }
+        public DbSet<InterviewQuestions.Models.Interview> Interview { get; set; }
     }
 }
