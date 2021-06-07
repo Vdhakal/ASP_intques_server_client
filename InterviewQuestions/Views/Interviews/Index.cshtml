@@ -15,9 +15,6 @@
             <th>
                 @Html.DisplayNameFor(model => model.InterviewQuestion)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.InterviewAnswer)
-            </th>
             <th></th>
         </tr>
     </thead>
@@ -28,11 +25,8 @@
                 @Html.DisplayFor(modelItem => item.InterviewQuestion)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.InterviewAnswer)
-            </td>
-            <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Answer</a> |
                 <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
             </td>
         </tr>

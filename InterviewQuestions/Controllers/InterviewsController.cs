@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using InterviewQuestions.Data;
 using InterviewQuestions.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace InterviewQuestions.Controllers
 {
@@ -26,7 +27,11 @@ namespace InterviewQuestions.Controllers
         }
         public async Task<IActionResult> ShowSearchForm()
         {
-            return View(await _context.Interview.ToListAsync());
+            return View();
+        }
+        public async Task<IActionResult> ShowSearchResults(String SearchPhrase)
+        {
+            return View("Index",await _context.Interview.Where( j => j.InterviewQuestion.Contains(SearchPhrase)).ToListAsync());
         }
         // GET: Interviews/Details/5
         public async Task<IActionResult> Details(int? id)
@@ -45,7 +50,7 @@ namespace InterviewQuestions.Controllers
 
             return View(interview);
         }
-
+        [Authorize]
         // GET: Interviews/Create
         public IActionResult Create()
         {
